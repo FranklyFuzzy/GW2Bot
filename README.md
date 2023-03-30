@@ -19,7 +19,7 @@ I used a python script to check the dailies via the api and save the output with
 After getting a list of ids of interest, I set out to create a twitter bot that would use python to check the dailies and if the ids match with those of interest, tweets those dailies out so I can see the fun ones without logging in!
 at first I hosted the code locally. I then transitioned to using aws lambda to run the daily check and tweeting.
 
-Local files 
+Local files that were used for testing and POC
 
 scrape.py - This script hits the daily API, pulls all the ids out, and checks all the acheivment entries for that day. It then prints out the name of the daily and the id associated with it.
 
