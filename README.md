@@ -21,4 +21,5 @@ at first I hosted the code locally. I then transitioned to using aws lambda to r
 
 Local files 
 scrape.py - This script hits the daily API, pulls all the ids out, and checks all the acheivment entries for that day. It then prints out the name of the daily and the id associated with it.
+
 DailyScraper.py - Iteration of scrape.py that adds date/time stamp and automated in task scheduler to run daily after the game dailies reset.
