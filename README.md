@@ -25,4 +25,4 @@ scrape.py - This script hits the daily API, pulls all the ids out, and checks al
 
 DailyScraper.py - Iteration of scrape.py that adds date/time stamp and automated in task scheduler to run daily after the game dailies reset.
 
-interestingIDs.txt - list of acheivment names and ids that I wanted to build my bot around. I used the output of DailyScraper.py as the source for the data in this text file.
+interestingIDs.txt - list of acheivment names and ids that I wanted to build my bot around. I used the output of DailyScraper.py as the source for the data in this text file. The ids from this file are later hard coded into my script in AWS for monitoring.
