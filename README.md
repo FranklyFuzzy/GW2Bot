@@ -20,3 +20,5 @@ After getting a list of ids of interest, I set out to create a twitter bot that 
 at first I hosted the code locally. I then transitioned to using aws lambda to run the daily check and tweeting.
 
 Local files 
+scrape.py - This script hits the daily API, pulls all the ids out, and checks all the acheivment entries for that day. It then prints out the name of the daily and the id associated with it.
+DailyScraper.py - Iteration of scrape.py that adds date/time stamp and automated in task scheduler to run daily after the game dailies reset.
