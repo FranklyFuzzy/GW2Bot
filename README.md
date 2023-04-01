@@ -17,12 +17,12 @@ interestingIDs.txt - list of acheivment names and ids that I wanted to build my 
 
 /AWS/requests.zip - Required dependancies for requests and tweepy.
 
+See in action: https://twitter.com/EZ_Dailies_GW2
 
 Ref:
+
 https://wiki.guildwars2.com/wiki/Template:Daily_Fractal_Schedule
 
 https://api.guildwars2.com/v2/achievements/daily
 
 https://api.guildwars2.com/v2/achievements?ids=1981
-
-See in action: https://twitter.com/EZ_Dailies_GW2
