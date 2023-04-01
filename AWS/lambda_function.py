@@ -1,3 +1,4 @@
+import requests
 import tweepy
 import boto3
 
@@ -10,7 +11,22 @@ def lambda_handler(event, context):
     consumer_secret = ssm.get_parameter(Name='/twitter-api-keys/consumer-secret', WithDecryption=True)['Parameter']['Value']
     access_token = ssm.get_parameter(Name='/twitter-api-keys/access-token', WithDecryption=True)['Parameter']['Value']
     access_token_secret = ssm.get_parameter(Name='/twitter-api-keys/access-secret', WithDecryption=True)['Parameter']['Value']
+    
+    url = "https://api.guildwars2.com/v2/achievements/daily"
+    response = requests.get(url)
+    data = response.json()
+    
+    ids = []
+    for key in data.keys():
+        if key == "pve" or key == "pvp" or key == "wvw" or key == "fractals" or key == "special":
+            for i in range(len(data[key])):
+                ids.append(data[key][i]["id"])
 
+    ids_to_check = [2908, 3201, 2989, 1930, 1852, 1839]
+
+    if any(x in ids_to_check for x in ids):
+        message = "Hello from inside a function"
+        
     # Authenticate with Twitter API
     client = tweepy.Client(
     consumer_key=consumer_key, consumer_secret=consumer_secret,
@@ -19,6 +35,6 @@ def lambda_handler(event, context):
     
     # Post a tweet
     response = client.create_tweet(
-    text="Hello from AWS"
+    text=message
     )
     print(f"https://twitter.com/user/status/{response.data['id']}")
