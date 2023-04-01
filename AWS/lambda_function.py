@@ -25,8 +25,16 @@ def lambda_handler(event, context):
     ids_to_check = [2908, 3201, 2989, 1930, 1852, 1839]
 
     if any(x in ids_to_check for x in ids):
-        message = "Hello from inside a function"
-        
+        message = "Today's fun activities include:\n"
+        for x in ids_to_check:
+            if x in ids:
+                url = "https://api.guildwars2.com/v2/achievements?ids=" + str(x)
+                response = requests.get(url)
+                data = response.json()
+                message += f"{data[0]['name']}\n"
+    else:
+        message = "No fun today :("
+
     # Authenticate with Twitter API
     client = tweepy.Client(
     consumer_key=consumer_key, consumer_secret=consumer_secret,
