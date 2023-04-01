@@ -1,63 +1,24 @@
 import requests
-print("Todays fun activities include ")
+
 url = "https://api.guildwars2.com/v2/achievements/daily"
-
 response = requests.get(url)
+data = response.json()
 
-if response.status_code == 200:
-    data = response.json()
-    found = False
-    for daily in data["fractals"]:
-        x = [3973,2929,11111,2966]
-        for id in x:
-            if daily["id"] == id:
-                url = "https://api.guildwars2.com/v2/achievements?ids=" + str(id)
-                response = requests.get(url)
-                fractals_data = response.json()
-                print(fractals_data[0]["name"], fractals_data[0]["id"])
-                found = True
-                break
-        if not found:
-            continue
-    found = False
-    for daily in data["wvw"]:
-        x = [1848]
-        for id in x:
-            if daily["id"] == id:
-                url = "https://api.guildwars2.com/v2/achievements?ids=" + str(id)
-                response = requests.get(url)
-                wvw_data = response.json()
-                print(wvw_data[0]["name"], wvw_data[0]["id"])
-                found = True
-                break
-        if not found:
-            continue
-    found = False
-    for daily in data["pve"]:
-        x = [1981]
-        for id in x:
-            if daily["id"] == id:
-                url = "https://api.guildwars2.com/v2/achievements?ids=" + str(id)
-                response = requests.get(url)
-                pve_data = response.json()
-                print(pve_data[0]["name"], pve_data[0]["id"])
-                found = True
-                break
-        if not found:
-            continue
+ids = []
+for key in data.keys():
+    if key == "pve" or key == "pvp" or key == "wvw" or key == "fractals" or key == "special":
+        for i in range(len(data[key])):
+            ids.append(data[key][i]["id"])
+
+ids_to_check = [2908, 3201, 2989, 1930]
+
+if any(x in ids_to_check for x in ids):
+    print("Today's fun activities include :")
+    for x in ids_to_check:
+        if x in ids:
+            url = "https://api.guildwars2.com/v2/achievements?ids=" + str(x)
+            response = requests.get(url)
+            data = response.json()
+            print(data[0]["name"], data[0]["id"])
 else:
-    print("Error: Could not retrieve data from the API.")
-    for daily in data["pve"]:
-        x = [1981]
-        for id in x:
-            if daily["id"] == id:
-                url = "https://api.guildwars2.com/v2/achievements?ids=" + str(id)
-                response = requests.get(url)
-                pve_data = response.json()
-                print("Todays fun activities include ", pve_data[0]["name"], pve_data[0]["id"])
-                found = True
-                break
-        if not found:
-            continue
-else:
-    print("Error: Could not retrieve data from the API.")
+  print("no fun today")
