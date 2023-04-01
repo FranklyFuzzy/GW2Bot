@@ -2,7 +2,7 @@
 
 dailyGetter.py - Script automated in task scheduler to run daily after the game dailies reset.
 
-interestingIDs.txt - list of acheivment names and ids that I wanted to build my bot around. I used the output of DailyScraper.py as the source for the data in this text file. The ids from this file are later hard coded into my script in AWS for monitoring.
+interestingIDs.txt - list of acheivment names and ids harvested by dailyGetter.
 
 /AWS/lambda_function.py - Script running in lambda that uses AWS SSM for creds, checks daily API for hard coded IDs and tweets results.
 
