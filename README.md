@@ -1,4 +1,4 @@
-# GW2 API script
+# GW2 Daily Bot
 
 I wanted to know when certain dailies were available.
 To do this I leveraged the GW2 API found here.
