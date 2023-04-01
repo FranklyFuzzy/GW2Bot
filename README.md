@@ -17,7 +17,7 @@ interestingIDs.txt - list of acheivment names and ids that I wanted to build my 
 
 /AWS/requests.zip - Required dependancies for requests and tweepy.
 
-See in action: https://twitter.com/EZ_Dailies_GW2
+See in action [HERE](https://twitter.com/EZ_Dailies_GW2)
 
 Ref:
 
