@@ -10,6 +10,9 @@ interestingIDs.txt - list of acheivment names and ids harvested by dailyGetter.
 
 See in action [HERE](https://twitter.com/EZ_Dailies_GW2)
 
+<img width="601" alt="Screenshot 2024-04-23 at 10 59 03 AM" src="https://github.com/FranklyFuzzy/GW2Bot/assets/30601526/752332c2-3f84-4afc-8821-e97d22bba980">
+
+
 Ref:
 
 https://wiki.guildwars2.com/wiki/Template:Daily_Fractal_Schedule
